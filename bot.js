@@ -2,7 +2,7 @@ const keepAlive = require("./server.js");
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.login('ODU2NDYzODk4NDExNDAxMjQ2.YNBaKQ.m3GOj-zG_jIGN_OKGukdnymrj7w');
+client.login('');
 
 keepAlive();
 
