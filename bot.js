@@ -119,20 +119,24 @@ function getFriendlyEvidenceName(evidence) {
 const GHOSTS = [
 	{ type: 'Banshee', evidence: [FINGERPRINTS, GHOST_ORBS, DOTS_PROJECTOR] },
 	{ type: 'Demon', evidence: [FINGERPRINTS, GHOST_WRITING, FREEZING_TEMPS] },
+	{ type: 'Goryo', evidence: [EMF_5, FINGERPRINTS, DOTS_PROJECTOR] },
+	{ type: 'Hantu', evidence: [FINGERPRINTS, GHOST_ORBS, FREEZING_TEMPS] },
 	{ type: 'Jinn', evidence: [EMF_5, FINGERPRINTS, FREEZING_TEMPS] },
 	{ type: 'Mare', evidence: [SPRIT_BOX, GHOST_ORBS, GHOST_WRITING] },
+	{ type: 'Myling', evidence: [EMF_5, FINGERPRINTS, GHOST_WRITING] },
+	{ type: 'Obake', evidence: [EMF_5, FINGERPRINTS, GHOST_ORBS] },
 	{ type: 'Oni', evidence: [EMF_5, FREEZING_TEMPS, DOTS_PROJECTOR] },
+	{ type: 'Onryo', evidence: [SPRIT_BOX, GHOST_ORBS, FREEZING_TEMPS] },
 	{ type: 'Phantom', evidence: [SPRIT_BOX, FINGERPRINTS, DOTS_PROJECTOR] },
 	{ type: 'Poltergeist', evidence: [SPRIT_BOX, FINGERPRINTS, GHOST_WRITING] },
+	{ type: 'Raiju', evidence: [EMF_5, GHOST_ORBS, DOTS_PROJECTOR] },
 	{ type: 'Revenant', evidence: [GHOST_ORBS, GHOST_WRITING, FREEZING_TEMPS] },
 	{ type: 'Shade', evidence: [EMF_5, GHOST_WRITING, FREEZING_TEMPS] },
 	{ type: 'Spirit', evidence: [EMF_5, SPRIT_BOX, GHOST_WRITING] },
+	{ type: 'The Twins', evidence: [EMF_5, SPRIT_BOX, FREEZING_TEMPS] },
 	{ type: 'Wraith', evidence: [EMF_5, SPRIT_BOX, DOTS_PROJECTOR] },
-	{ type: 'Yurei', evidence: [GHOST_ORBS, FREEZING_TEMPS, DOTS_PROJECTOR] },
 	{ type: 'Yokai', evidence: [SPRIT_BOX, GHOST_ORBS, DOTS_PROJECTOR] },
-	{ type: 'Hantu', evidence: [FINGERPRINTS, GHOST_ORBS, FREEZING_TEMPS] },
-	{ type: 'Goryo', evidence: [EMF_5, FINGERPRINTS, DOTS_PROJECTOR] },
-	{ type: 'Myling', evidence: [EMF_5, FINGERPRINTS, GHOST_WRITING] },
+	{ type: 'Yurei', evidence: [GHOST_ORBS, FREEZING_TEMPS, DOTS_PROJECTOR] },
 ]
 
 function getEvidenceOfGhost(ghostType) {
