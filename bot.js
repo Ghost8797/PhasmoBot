@@ -155,7 +155,7 @@ function ghostEvidenceLookup(input) {
 	const lastWord = input.trim().split(" ").pop() // look at only the last word for the ghost name
 	const ghost = getGhostByName(lastWord)
 	if (ghost) {
-		return `**${ghost.name}**: ${evidence.map(e => getFriendlyEvidenceName(e)).join(", ")}\n*${ghost.description}*`
+		return `**${ghost.name}**: ${ghost.evidence.map(e => getFriendlyEvidenceName(e)).join(", ")}\n*${ghost.description}*`
 	}
 
 	const verbose = input.match(/^[!/]ee/i) // if user used /ee instead of /e, then give verbose output
