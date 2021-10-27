@@ -117,33 +117,34 @@ function getFriendlyEvidenceName(evidence) {
 }
 
 const GHOSTS = [
-	{ type: 'Banshee', evidence: [FINGERPRINTS, GHOST_ORBS, DOTS_PROJECTOR] },
-	{ type: 'Demon', evidence: [FINGERPRINTS, GHOST_WRITING, FREEZING_TEMPS] },
-	{ type: 'Goryo', evidence: [EMF_5, FINGERPRINTS, DOTS_PROJECTOR] },
-	{ type: 'Hantu', evidence: [FINGERPRINTS, GHOST_ORBS, FREEZING_TEMPS] },
-	{ type: 'Jinn', evidence: [EMF_5, FINGERPRINTS, FREEZING_TEMPS] },
-	{ type: 'Mare', evidence: [SPRIT_BOX, GHOST_ORBS, GHOST_WRITING] },
-	{ type: 'Myling', evidence: [EMF_5, FINGERPRINTS, GHOST_WRITING] },
-	{ type: 'Obake', evidence: [EMF_5, FINGERPRINTS, GHOST_ORBS] },
-	{ type: 'Oni', evidence: [EMF_5, FREEZING_TEMPS, DOTS_PROJECTOR] },
-	{ type: 'Onryo', evidence: [SPRIT_BOX, GHOST_ORBS, FREEZING_TEMPS] },
-	{ type: 'Phantom', evidence: [SPRIT_BOX, FINGERPRINTS, DOTS_PROJECTOR] },
-	{ type: 'Poltergeist', evidence: [SPRIT_BOX, FINGERPRINTS, GHOST_WRITING] },
-	{ type: 'Raiju', evidence: [EMF_5, GHOST_ORBS, DOTS_PROJECTOR] },
-	{ type: 'Revenant', evidence: [GHOST_ORBS, GHOST_WRITING, FREEZING_TEMPS] },
-	{ type: 'Shade', evidence: [EMF_5, GHOST_WRITING, FREEZING_TEMPS] },
-	{ type: 'Spirit', evidence: [EMF_5, SPRIT_BOX, GHOST_WRITING] },
-	{ type: 'The Twins', evidence: [EMF_5, SPRIT_BOX, FREEZING_TEMPS] },
-	{ type: 'Wraith', evidence: [EMF_5, SPRIT_BOX, DOTS_PROJECTOR] },
-	{ type: 'Yokai', evidence: [SPRIT_BOX, GHOST_ORBS, DOTS_PROJECTOR] },
-	{ type: 'Yurei', evidence: [GHOST_ORBS, FREEZING_TEMPS, DOTS_PROJECTOR] },
+	{ type: 'Banshee', evidence: [FINGERPRINTS, GHOST_ORBS, DOTS_PROJECTOR], description: "Targets one player at a time, crucifix effective range is increased, and it will be less aggressive near it." },
+	{ type: 'Demon', evidence: [FINGERPRINTS, GHOST_WRITING, FREEZING_TEMPS], description: "Can hunt around 70% sanity, sanity drain is decreased from Ouija Board." },
+	{ type: 'Goryo', evidence: [EMF_5, FINGERPRINTS, DOTS_PROJECTOR], description: "DOTS evidence is only visible on cameras if no one is in its room, rarely wanders." },
+	{ type: 'Hantu', evidence: [FINGERPRINTS, GHOST_ORBS, FREEZING_TEMPS], description: "Faster in colder temperatures, slower in warmer areas." },
+	{ type: 'Jinn', evidence: [EMF_5, FINGERPRINTS, FREEZING_TEMPS], description: "Will travel faster if farther away, turn off power to counter its speed. Hidden sanity tanking ability when power is on." },
+	{ type: 'Mare', evidence: [SPRIT_BOX, GHOST_ORBS, GHOST_WRITING], description: "Increased chance to hunt in the dark, around 80%, turn on lights to counter this." },
+	{ type: 'Myling', evidence: [EMF_5, FINGERPRINTS, GHOST_WRITING], description: "Harder to hear when hunting, Makes more sounds for parabolic mic." },
+	{ type: 'Obake', evidence: [EMF_5, FINGERPRINTS, GHOST_ORBS], description: "Some interactions may not leave a trace, can leave behind unique variants of fingerprints/footprints." },
+	{ type: 'Oni', evidence: [EMF_5, FREEZING_TEMPS, DOTS_PROJECTOR], description: "More active when multiple people are nearby, this makes them easier to find and they throw objects at greater speed then Poltergeist" },
+	{ type: 'Onryo', evidence: [SPRIT_BOX, GHOST_ORBS, FREEZING_TEMPS], description: "Does not like flame/fires, it will be less likely to attack around fire." },
+	{ type: 'Phantom', evidence: [SPRIT_BOX, FINGERPRINTS, DOTS_PROJECTOR], description: "Looking at a Phantom will drop your sanity, will disappear if you take a photo of it." },
+	{ type: 'Poltergeist', evidence: [SPRIT_BOX, FINGERPRINTS, GHOST_WRITING], description: "Can throw multiple objects at once, hard to find in an empty room" },
+	{ type: 'Raiju', evidence: [EMF_5, GHOST_ORBS, DOTS_PROJECTOR], description: "Siphon power to increase its speed, this makes it easier to track while hunting." },
+	{ type: 'Revenant', evidence: [GHOST_ORBS, GHOST_WRITING, FREEZING_TEMPS], description: "You can not out run this, break contact and hide!" },
+	{ type: 'Shade', evidence: [EMF_5, GHOST_WRITING, FREEZING_TEMPS], description: "Not that active usually, harder to find and will not hunt with multiple people nearby." },
+	{ type: 'Spirit', evidence: [EMF_5, SPRIT_BOX, GHOST_WRITING], description: "Most common, seems to be more aggressive, smudge sticks have an increased effect on them." },
+	{ type: 'The Twins', evidence: [EMF_5, SPRIT_BOX, FREEZING_TEMPS], description: "They mimic each others actions, either one can be angered, will alternate attacks to confuse you, also will interact at the same time." },
+	{ type: 'Wraith', evidence: [EMF_5, SPRIT_BOX, DOTS_PROJECTOR], description: "Can't be tracked by sound, doesn't like salt." },
+	{ type: 'Yokai', evidence: [SPRIT_BOX, GHOST_ORBS, DOTS_PROJECTOR], description: "Talking near them will increase the chance of a hunt, while hunting it can only hear nearby voices." },
+	{ type: 'Yurei', evidence: [GHOST_ORBS, FREEZING_TEMPS, DOTS_PROJECTOR], description: "Constant passive sanity drain, smudging the ghost room will reduce its wander range." },
 ]
 
-function getEvidenceOfGhost(ghostType) {
+function getGhostByName(name) {
 	// only checks the first 3 letters of ghost name 
 	const lettersToCheck = 3
-	const ghost = GHOSTS.find(ghost => ghost.type.toLowerCase().substring(0, lettersToCheck) == ghostType.toLowerCase().substring(0, lettersToCheck))
-	return ghost ? ghost.evidence : null
+	name = name.replace(/twi/i, "the"); // flexible handling of the twins
+	return GHOSTS.find(ghost => ghost.type.toLowerCase().substring(0, lettersToCheck) == name.toLowerCase().substring(0, lettersToCheck));
+	
 }
 
 // Given a list of evidence and non-evidence (e.g. spirit box, not freezing), gives a list of possible ghosts
@@ -152,10 +153,12 @@ function ghostEvidenceLookup(input) {
 	// first, see if it's a ghost name.
 	// if so, return its evidence
 	const lastWord = input.trim().split(" ").pop() // look at only the last word for the ghost name
-	const evidence = getEvidenceOfGhost(lastWord)
-	if (evidence) {
-		return evidence.map(e => getFriendlyEvidenceName(e)).join(", ")
+	const ghost = getGhostByName(lastWord)
+	if (ghost) {
+		return `**${ghost.name}**: ${evidence.map(e => getFriendlyEvidenceName(e)).join(", ")}\n*${ghost.description}*`
 	}
+
+	const verbose = input.match(/^[!/]ee/i) // if user used /ee instead of /e, then give verbose output
 
 	// allow for alternate evidence names (e.g. fingies instead of fingerprints)
 	input = input.toLowerCase()
@@ -191,6 +194,9 @@ function ghostEvidenceLookup(input) {
 
 		const remainingEvidencesString = remainingEvidences.length > 0 ? `(${remainingEvidences.join(", ")})` : ""
 
-		return `${ghost.type} ${remainingEvidencesString}`
+		var output = `**${ghost.type}** ${remainingEvidencesString}`
+		if (verbose)
+			output += `\n*${ghost.description}*\n`
+		return output	
 	}).join("\n")
 }
