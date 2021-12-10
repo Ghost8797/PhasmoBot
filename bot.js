@@ -137,13 +137,15 @@ const GHOSTS = [
 	{ type: 'Wraith', evidence: [EMF_5, SPRIT_BOX, DOTS_PROJECTOR], description: "Can't be tracked by sound, doesn't like salt." },
 	{ type: 'Yokai', evidence: [SPRIT_BOX, GHOST_ORBS, DOTS_PROJECTOR], description: "Talking near them will increase the chance of a hunt, while hunting it can only hear nearby voices." },
 	{ type: 'Yurei', evidence: [GHOST_ORBS, FREEZING_TEMPS, DOTS_PROJECTOR], description: "Constant passive sanity drain, smudging the ghost room will reduce its wander range." },
+	{ type: 'The Mimic', evidence: [SPRIT_BOX, FINGERPRINTS, FREEZING_TEMPS], description: "Mirrors traits from other ghost types. Ghost orbs may be spotted next to it."}
 ]
 
 function getGhostByName(name) {
 	// only checks the first 3 letters of ghost name 
 	const lettersToCheck = 3
-	name = name.replace(/twi/i, "the"); // flexible handling of the twins
-	return GHOSTS.find(ghost => ghost.type.toLowerCase().substring(0, lettersToCheck) == name.toLowerCase().substring(0, lettersToCheck));
+	name = name.replace(/the ?/i, "")// flexible handling of the twins and mimic
+	
+	return GHOSTS.find(ghost => ghost.type.toLowerCase().replace("the ","").substring(0, lettersToCheck) == name.toLowerCase().substring(0, lettersToCheck));
 	
 }
 
