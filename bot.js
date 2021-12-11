@@ -37,7 +37,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === '!version') {
-		message.channel.send('PhasmoBot v2.8');
+		message.channel.send('PhasmoBot v2.9');
 	}
 
 	if (message.content === '!command') {
