@@ -118,7 +118,7 @@ function getFriendlyEvidenceName(evidence) {
 
 const GHOSTS = [
 	{ type: 'Banshee', evidence: [FINGERPRINTS, GHOST_ORBS, DOTS_PROJECTOR], description: "Targets one player at a time, crucifix effective range is increased, and it will be less aggressive near it." },
-	{ type: 'Demon', evidence: [FINGERPRINTS, GHOST_WRITING, FREEZING_TEMPS], description: "Can hunt around 70% sanity, sanity drain is decreased from Ouija Board." },
+	{ type: 'Demon', evidence: [FINGERPRINTS, GHOST_WRITING, FREEZING_TEMPS], description: "Can hunt at 100% sanity, sanity drain is decreased from Ouija Board." },
 	{ type: 'Goryo', evidence: [EMF_5, FINGERPRINTS, DOTS_PROJECTOR], description: "DOTS evidence is only visible on cameras if no one is in its room, rarely wanders." },
 	{ type: 'Hantu', evidence: [FINGERPRINTS, GHOST_ORBS, FREEZING_TEMPS], description: "Faster in colder temperatures, slower in warmer areas." },
 	{ type: 'Jinn', evidence: [EMF_5, FINGERPRINTS, FREEZING_TEMPS], description: "Will travel faster if farther away, turn off power to counter its speed. Hidden sanity tanking ability when power is on." },
